@@ -19,8 +19,7 @@ public class WordList {
   }
   // TODO: Implement size() method, returning an int
   public int size() {
-    int size = list.size();
-    return size;
+    return list.size();
   }
   // TODO: Implement getWord() with an int parameter, returning a String
   public String getWord(int i){
