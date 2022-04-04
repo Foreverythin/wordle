@@ -9,7 +9,7 @@ public class Game {
   // TODO: Implement constructor with String parameter
     public Game(String file) throws IOException {
       WordList wordlist = new WordList(file);
-      targetWord = wordlist.getWord(0);
+      targetWord = wordlist.getWord(1);
     }
   // TODO: Implement constructor with int and String parameters
     public Game(int i, String file) throws IOException {

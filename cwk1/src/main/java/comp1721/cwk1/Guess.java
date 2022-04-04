@@ -56,7 +56,7 @@ public class Guess {
     }
     for (int i = 0; i < 5; i++){
       if (correctPosition.indexOf(i) == -1){
-        if (tmpTargetWord.indexOf(chosenWord.charAt(i)) != -1){
+        if (tmpTargetWord.indexOf(Character.toString(chosenWord.charAt(i))) != -1){
           flag[i] = 1;
           tmpTargetWord.remove(Character.toString(chosenWord.charAt(i)));
         }
