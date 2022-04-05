@@ -12,7 +12,12 @@ public class Wordle {
 
     if (args.length > 0) {
       // Player wants to specify the game
-      game = new Game(Integer.parseInt(args[0]), "data/words.txt");
+      try{
+        game = new Game(Integer.parseInt(args[0]), "data/words.txt");
+      }catch (NumberFormatException e){
+        throw new GameException("Invalid guess number!");
+      }
+
     }
     else {
       // Play today's game

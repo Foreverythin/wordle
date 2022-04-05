@@ -23,6 +23,9 @@ public class WordList {
   }
   // TODO: Implement getWord() with an int parameter, returning a String
   public String getWord(int i){
-    return list.get(i);
+    if (i < 0 || i >= list.size())
+      throw new GameException("Invalid game number!");
+    else
+      return list.get(i);
   }
 }

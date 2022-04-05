@@ -1,5 +1,7 @@
 package comp1721.cwk1;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,11 +15,17 @@ public class Guess {
 
   // TODO: Implement constructor with int parameter
   public Guess (int guessNumber) {
+    if (guessNumber<=0 || guessNumber>=7)
+      throw new GameException("Invalid guess number!");
     this.guessNumber = guessNumber;
   }
 
   // TODO: Implement constructor with int and String parameters
-  public Guess (int guessNumber, String chosenWord){
+  public Guess (int guessNumber, String chosenWord) {
+    if (chosenWord.length() != 5)
+      throw new GameException("Invalid word!");
+    if (!chosenWord.matches("[a-zA-Z]+"))
+      throw new GameException("Invalid word!");
     this.guessNumber = guessNumber;
     this.chosenWord = chosenWord.toUpperCase();
   }
@@ -65,11 +73,11 @@ public class Guess {
     String result = "";
     for (int i = 0; i < 5; i++){
       if (flag[i] == 2)
-        result += "\033[30;102m %c \033[0m";
+        result += "\033[30;102m " + chosenWord.charAt(i) + " \033[0m";
       else if (flag[i] == 1)
-        result += "\033[30;103m %c \033[0m";
+        result += "\033[30;103m " + chosenWord.charAt(i) + " \033[0m";
       else
-        result += "\033[30;107m %c \033[0m";
+        result += "\033[30;107m " + chosenWord.charAt(i) + " \033[0m";
     }
 
     return result;
