@@ -7,24 +7,54 @@ import java.io.IOException;
 
 
 public class Wordle {
-  public static void main(String[] args) throws IOException {
-    Game game;
+    public static void main(String[] args) throws IOException {
+        Game game = null;
 
-    if (args.length > 0) {
-      // Player wants to specify the game
-      try{
-        game = new Game(Integer.parseInt(args[0]), "data/words.txt");
-      }catch (NumberFormatException e){
-        throw new GameException("Invalid guess number!");
-      }
+        if (args.length == 2){
+            // Player wants to specify the game
+            boolean valid = false;
+            while (!valid) {
+                try {
+                    game = new Game(Integer.parseInt(args[1]), "data/words.txt");
+                    valid = true;
+                } catch (GameException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }else if (args.length == 1){
+            if (args[0].equals("-a")){
+                // Play today's game
+                game = new Game("data/words.txt");
+            }
+            else{
+                // Player wants to specify the game
+                boolean valid = false;
+                while (!valid) {
+                    try {
+                        game = new Game(Integer.parseInt(args[0]), "data/words.txt");
+                        valid = true;
+                    } catch (GameException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        }else{
+            // Play today's game
+            game = new Game("data/words.txt");
+        }
 
+        if (args.length == 2){
+            game.playMode2();
+        }else if (args.length == 1){
+            if (args[0].equals("-a")){
+                game.playMode2();
+            }
+            else{
+                game.play();
+            }
+        }else{
+            game.play();
+        }
+        game.save("build/lastgame.txt");
     }
-    else {
-      // Play today's game
-      game = new Game("data/words.txt");
-    }
-
-    game.play();
-    game.save("build/lastgame.txt");
-  }
 }

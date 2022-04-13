@@ -85,6 +85,19 @@ task runFixed(type: JavaExec) {
   }
 }
 
+task runMode2(type: JavaExec) {
+  group 'application'
+  description 'Runs the game for people who have impaired colour vision, or people who rely on screen readers.'
+  standardInput = System.in
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'comp1721.cwk1.Wordle'
+  args '-a'
+  doFirst {
+    println "\nThe mode is for people who have impaired colour vision, or\npeople who rely on screen readers.\n"
+    println "----------------------------------------------------------------"
+  }
+}
+
 // Generation of Zip file for submission
 
 task submission(type: Zip) {
