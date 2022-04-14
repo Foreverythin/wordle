@@ -11,9 +11,21 @@ import java.util.HashMap;
 public class Game {
     private final String targetWord;
     private String outText = "";
-    int tag = 0;
-    int gameNumber;
-    int guessNumber;
+    private int tag = 0;
+    private int gameNumber;
+    private int guessNumber;
+
+    public int getTag() {
+        return tag;
+    }
+
+    public int getGameNumber() {
+        return gameNumber;
+    }
+
+    public int getGuessNumber() {
+        return guessNumber;
+    }
 
     public String getTargetWord() {
         return targetWord;
@@ -209,7 +221,7 @@ public class Game {
             } else if (guessNumber >= 2 && guessNumber <= 5) {
                 System.out.println("Well done!");
             } else if (guessNumber == 6) {
-                System.out.println("That was a close call!");
+                System.out.println("That was a close call!\n");
             }
         } else {
             this.guessNumber = 6;

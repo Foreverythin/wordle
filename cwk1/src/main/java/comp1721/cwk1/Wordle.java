@@ -10,11 +10,14 @@ public class Wordle {
     public static void main(String[] args) throws IOException {
         Game game = null;
         History history;
+        int tag;
 
         try {
             history = new History("build/history.txt");
-        } catch (Exception e){
+            tag = 1;
+        } catch (Exception e) {
             history = new History();
+            tag = 0;
         }
 
         if (args.length == 2) {
@@ -62,6 +65,28 @@ public class Wordle {
         }
 
         game.save("build/lastgame.txt");
-        history.save("build/history.txt", game.gameNumber, game.tag, game.guessNumber);
+
+
+        if (tag == 0) {
+            if (game.getTag() == 1) {
+                history.setCurrentStreak(1);
+                history.setLongestStreak(1);
+            } else {
+                history.setCurrentStreak(0);
+                history.setLongestStreak(0);
+            }
+        } else {
+            if (game.getTag() == 0) {
+                history.setCurrentStreak(0);
+            } else {
+                history.setCurrentStreak(history.getCurrentStreak() + 1);
+                if (history.getCurrentStreak() > history.getLongestStreak()) {
+                    history.setLongestStreak(history.getCurrentStreak());
+                }
+            }
+        }
+        history.save("build/history.txt", game.getGameNumber(), game.getTag(),
+                game.getGuessNumber());
+        history.show(game.getTag(), game.getGuessNumber());
     }
 }
