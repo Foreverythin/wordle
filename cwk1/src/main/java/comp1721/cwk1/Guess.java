@@ -10,9 +10,9 @@ public class Guess {
     // Use this to get player input in readFromPlayer()
     private static final Scanner INPUT = new Scanner(System.in);
 
-    private int guessNumber;
+    private final int guessNumber;
     private String chosenWord;
-    private int[] flag = {0, 0, 0, 0, 0};
+    private final int[] flag = {0, 0, 0, 0, 0};
 
     public int[] getFlag() {
         return flag;
@@ -86,28 +86,24 @@ public class Guess {
                 }
             }
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < 5; i++) {
             if (flag[i] == 2){
-                result += "\033[30;102m " + chosenWord.charAt(i) + " \033[0m";
+                result.append("\033[30;102m ").append(chosenWord.charAt(i)).append(" \033[0m");
             }
             else if (flag[i] == 1){
-                result += "\033[30;103m " + chosenWord.charAt(i) + " \033[0m";
+                result.append("\033[30;103m ").append(chosenWord.charAt(i)).append(" \033[0m");
             }
             else{
-                result += "\033[30;107m " + chosenWord.charAt(i) + " \033[0m";
+                result.append("\033[30;107m ").append(chosenWord.charAt(i)).append(" \033[0m");
             }
         }
 
-        return result;
+        return result.toString();
     }
 
     // TODO: Implement matches(), giving it a String parameter and boolean return type
     public boolean matches(String targetWord) {
-        if (chosenWord.equals(targetWord)){
-            return true;
-        }else{
-            return false;
-        }
+        return chosenWord.equals(targetWord);
     }
 }

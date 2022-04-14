@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class WordList {
-    private ArrayList<String> list = new ArrayList<String>();
+    private final ArrayList<String> list = new ArrayList<String>();
 
     public ArrayList<String> getList() {
         return list;

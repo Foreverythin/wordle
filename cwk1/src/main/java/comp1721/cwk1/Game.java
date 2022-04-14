@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 
 public class Game {
-    private String targetWord;
+    private final String targetWord;
     private String outText = "";
 
     public String getTargetWord() {

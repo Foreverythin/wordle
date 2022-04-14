@@ -3,12 +3,21 @@
 
 package comp1721.cwk1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
 public class Wordle {
     public static void main(String[] args) throws IOException {
         Game game = null;
+        History history = null;
+
+        try {
+            history = new History("build/history.txt");
+        }catch (Exception e){
+
+        }
 
         if (args.length == 2){
             // Player wants to specify the game
@@ -55,6 +64,15 @@ public class Wordle {
         }else{
             game.play();
         }
+
         game.save("build/lastgame.txt");
+
+        history.setCurrentStreak(100);
+        history.setLongestStreak(100);
+        if (history == null){
+            history.save("build/history.txt", 100, 100, 100);
+        }else{
+            history.save("build/history.txt", 100, 100, 100);
+        }
     }
 }
