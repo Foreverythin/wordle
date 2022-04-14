@@ -11,6 +11,9 @@ import java.util.HashMap;
 public class Game {
     private final String targetWord;
     private String outText = "";
+    int tag = 0;
+    int gameNumber;
+    int guessNumber;
 
     public String getTargetWord() {
         return targetWord;
@@ -27,17 +30,18 @@ public class Game {
         LocalDate today = LocalDate.now();
         int days = (int) (today.toEpochDay() - firstDay.toEpochDay());
         targetWord = wordlist.getWord(days);
+        gameNumber = days;
     }
 
     // TODO: Implement constructor with int and String parameters
     public Game(int i, String file) throws IOException {
         WordList wordlist = new WordList(file);
         targetWord = wordlist.getWord(i);
+        gameNumber = i;
     }
 
     // TODO: Implement play() method
     public void play() throws IOException {
-        int tag = 0;
         Guess guess = null;
         int guessNumber = 1;
         boolean valid;
@@ -72,6 +76,7 @@ public class Game {
             guessNumber++;
         }
         if (tag == 1) {
+            this.guessNumber = guessNumber;
             if (guessNumber == 1) {
                 System.out.println("Superb - Got it in one!");
             } else if (guessNumber >= 2 && guessNumber <= 5) {
@@ -80,6 +85,7 @@ public class Game {
                 System.out.println("That was a close call!");
             }
         } else {
+            this.guessNumber = 6;
             System.out.println("Nope - Better luck next time! ");
         }
     }
@@ -88,7 +94,6 @@ public class Game {
     // This method is used for people who have impaired colour vision, or
     // people who rely on screen readers.
     public void playMode2() throws IOException {
-        int tag = 0;
         int[] flag;
         int num2;
         int num1;
@@ -198,6 +203,7 @@ public class Game {
             guessNumber++;
         }
         if (tag == 1) {
+            this.guessNumber = guessNumber;
             if (guessNumber == 1) {
                 System.out.println("Superb - Got it in one!");
             } else if (guessNumber >= 2 && guessNumber <= 5) {
@@ -206,6 +212,7 @@ public class Game {
                 System.out.println("That was a close call!");
             }
         } else {
+            this.guessNumber = 6;
             System.out.println("Nope - Better luck next time! ");
         }
     }

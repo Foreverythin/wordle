@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/Game.java">
+</file>
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/GameException.java">
+</file>
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/Guess.java">
+<error line="22" column="22" severity="warning" message="&apos;guessNumber&apos; 隐藏属性。" source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="30" column="22" severity="warning" message="&apos;guessNumber&apos; 隐藏属性。" source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="30" column="42" severity="warning" message="&apos;chosenWord&apos; 隐藏属性。" source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+</file>
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/History.java">
+<error line="51" column="38" severity="warning" message="&apos;currentStreak&apos; 隐藏属性。" source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="55" column="38" severity="warning" message="&apos;longestStreak&apos; 隐藏属性。" source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+</file>
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/WordList.java">
+</file>
+<file name="/home/pangyu/Documents/java_cwk/cwk1/src/main/java/comp1721/cwk1/Wordle.java">
+<error line="16" column="31" severity="warning" message="空 catch 块。" source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck"/>
+</file>
+</checkstyle>
