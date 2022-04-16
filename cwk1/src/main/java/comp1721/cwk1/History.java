@@ -1,7 +1,10 @@
 package comp1721.cwk1;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 
 
@@ -47,12 +50,12 @@ public class History {
         return longestStreak;
     }
 
-    public void setCurrentStreak(int currentStreak) {
-        this.currentStreak = currentStreak;
+    public void setCurrentStreak(int currentStreakTmp) {
+        this.currentStreak = currentStreakTmp;
     }
 
-    public void setLongestStreak(int longestStreak) {
-        this.longestStreak = longestStreak;
+    public void setLongestStreak(int longestStreakTmp) {
+        this.longestStreak = longestStreakTmp;
     }
 
     public History() {
@@ -135,7 +138,8 @@ public class History {
 
         System.out.println("\n------------------------------------------------");
         System.out.println("->Number of games played: " + (gameNumbers.length + 1));
-        System.out.printf("->Percentage of games that were wins: %.2f\n", (win / (correctNumbers.length + 1)));
+        System.out.printf("->Percentage of games that were wins: %.2f\n",
+                win / (correctNumbers.length + 1));
         System.out.println("->Length of the current winning streak: " + currentStreak);
         System.out.println("->Longest winning streak: " + longestStreak);
 
@@ -163,42 +167,42 @@ public class History {
         float numWin5 = num5Win / win;
         float numWin6 = num6Win / win;
         System.out.println("->Histogram of guess distribution: \n");
-        System.out.println("nums|                                                                                " +
-                "                                Probability");
-        System.out.println("    -----------------------------------------------------------------------------------" +
-                "-----------------------------------------");
+        System.out.println("nums|                                                               " +
+                "                 Probability");
+        System.out.println("    ----------------------------------------------------------" +
+                "----------------------------------");
         System.out.print("  1 | ");
-        for (int i = 0; i < ((int)num1Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num1Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin1);
         System.out.println("    | ");
         System.out.print("  2 | ");
-        for (int i = 0; i < ((int)num2Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num2Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin2);
         System.out.println("    | ");
         System.out.print("  3 | ");
-        for (int i = 0; i < ((int)num3Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num3Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin3);
         System.out.println("    | ");
         System.out.print("  4 | ");
-        for (int i = 0; i < ((int)num4Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num4Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin4);
         System.out.println("    | ");
         System.out.print("  5 | ");
-        for (int i = 0; i < ((int)num5Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num5Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin5);
         System.out.println("    | ");
         System.out.print("  6 | ");
-        for (int i = 0; i < ((int)num6Win/(0.1)); i ++){
+        for (int i = 0; i < ((int)num6Win/0.1); i ++){
             System.out.print("■");
         }
         System.out.println(" " + numWin6);

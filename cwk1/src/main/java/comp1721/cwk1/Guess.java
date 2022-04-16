@@ -19,23 +19,23 @@ public class Guess {
     }
 
     // TODO: Implement constructor with int parameter
-    public Guess(int guessNumber) {
-        if (guessNumber <= 0 || guessNumber >= 7){
+    public Guess(int guessNumberTmp) {
+        if (guessNumberTmp <= 0 || guessNumberTmp >= 7){
             throw new GameException("Invalid guess number!");
         }
-        this.guessNumber = guessNumber;
+        this.guessNumber = guessNumberTmp;
     }
 
     // TODO: Implement constructor with int and String parameters
-    public Guess(int guessNumber, String chosenWord) {
-        if (chosenWord.length() != 5){
+    public Guess(int guessNumberTmp, String chosenWordTmp){
+        if (chosenWordTmp.length() != 5){
+            throw new GameException("The word must have the length 5!");
+        }
+        if (!chosenWordTmp.matches("[a-zA-Z]+")){
             throw new GameException("Invalid word!");
         }
-        if (!chosenWord.matches("[a-zA-Z]+")){
-            throw new GameException("Invalid word!");
-        }
-        this.guessNumber = guessNumber;
-        this.chosenWord = chosenWord.toUpperCase();
+        this.guessNumber = guessNumberTmp;
+        this.chosenWord = chosenWordTmp.toUpperCase();
     }
 
     // TODO: Implement getGuessNumber(), returning an int
@@ -53,6 +53,9 @@ public class Guess {
         chosenWord = INPUT.next();
         chosenWord = chosenWord.toUpperCase();
         WordList wordList = new WordList("data/words.txt");
+        if (!chosenWord.matches("[a-zA-Z]+")){
+            throw new GameException("Invalid word!");
+        }
         if (chosenWord.length() != 5) {
             throw new GameException("The word must have the length 5!");
         }

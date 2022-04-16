@@ -12,8 +12,8 @@ public class Game {
     private final String targetWord;
     private String outText = "";
     private int tag = 0;
-    private int gameNumber;
-    private int guessNumber;
+    private final int gameNumber;
+    private int guessNumber = 1;
 
     public int getTag() {
         return tag;
@@ -55,7 +55,6 @@ public class Game {
     // TODO: Implement play() method
     public void play() throws IOException {
         Guess guess = null;
-        int guessNumber = 1;
         boolean valid;
         while (guessNumber != 7) {
             valid = false;
@@ -120,7 +119,6 @@ public class Game {
         position.put(4, "4th");
         position.put(5, "5th");
         Guess guess = null;
-        int guessNumber = 1;
         boolean valid;
         while (guessNumber != 7) {
             valid = false;
