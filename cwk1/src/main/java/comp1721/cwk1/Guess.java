@@ -12,8 +12,11 @@ public class Guess {
 
     private final int guessNumber;
     private String chosenWord;
+    // TODO: The mark of letter. 0 -- no this letter; 1 -- correct letter but wrong position;
+    //  2 -- correct letter and correct position
     private final int[] flag = {0, 0, 0, 0, 0};
 
+    // TODO: Getter of the flag
     public int[] getFlag() {
         return flag;
     }

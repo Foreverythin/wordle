@@ -20,6 +20,7 @@ public class Wordle {
             tag = 0;
         }
 
+        // TODO: Judge the number of the arguments and what the arguments are
         if (args.length == 2) {
             // Player wants to specify the game
             boolean valid = false;
@@ -64,6 +65,7 @@ public class Wordle {
             game.play();
         }
 
+        // TODO: Save the lastgame's output into lastgame.txt in the build directory
         game.save("build/lastgame.txt");
 
 
@@ -85,8 +87,13 @@ public class Wordle {
                 }
             }
         }
+        // TODO: Save the lastgame's output into lastgame.txt in the build directory
         history.save("build/history.txt", game.getGameNumber(), game.getTag(),
                 game.getGuessNumber());
+
+        // TODO: Show the information of the Number of games played, Percentage of games
+        //  that were wins, Length of the current winning streak, Longest winning streak
+        //  and Histogram of guess distribution
         history.show(game.getTag(), game.getGuessNumber());
     }
 }

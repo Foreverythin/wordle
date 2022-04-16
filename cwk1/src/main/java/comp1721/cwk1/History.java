@@ -9,55 +9,42 @@ import java.util.Objects;
 
 
 public class History {
+    // TODO: The gameNumbers
     private final String[] gameNumbers;
+    // TODO: The numbers to judge whether win or not. 1 -- win; 0 -- lose.
     private final String[] correctNumbers;
+    // TODO: numbers to play the game
     private final String[] allNumbers;
     private final String gameNumbersString;
     private final String correctNumbersString;
     private final String allNumbersString;
+    // TODO: the current Streak
     private int currentStreak;
+    // TODO: the longest Streak
     private int longestStreak;
 
-    public String getGameNumbersString() {
-        return gameNumbersString;
-    }
 
-    public String getCorrectNumbersString() {
-        return correctNumbersString;
-    }
-
-    public String getAllNumbersString() {
-        return allNumbersString;
-    }
-
-    public String[] getGameNumbers() {
-        return gameNumbers;
-    }
-
-    public String[] getCorrectNumbers() {
-        return correctNumbers;
-    }
-
-    public String[] getAllNumbers() {
-        return allNumbers;
-    }
-
+    // TODO: Getter of current streak
     public int getCurrentStreak() {
         return currentStreak;
     }
 
+    // TODO: Getter of longest streak
     public int getLongestStreak() {
         return longestStreak;
     }
 
+    // TODO: Setter of current streak
     public void setCurrentStreak(int currentStreakTmp) {
         this.currentStreak = currentStreakTmp;
     }
 
+    // TODO: Setter of longest streak
     public void setLongestStreak(int longestStreakTmp) {
         this.longestStreak = longestStreakTmp;
     }
 
+    // TODO: Constructor, when there is no history.txt in the build directory
     public History() {
         gameNumbers = new String[]{};
         correctNumbers = new String[]{};
@@ -67,6 +54,7 @@ public class History {
         allNumbersString = "";
     }
 
+    // TODO: Constructor, when there is the history.txt in the build directory
     public History(String fileName) throws IOException {
         FileReader file = new FileReader(fileName);
         BufferedReader br = new BufferedReader(file);
@@ -81,6 +69,7 @@ public class History {
         br.close();
     }
 
+    // TODO: Save the information in the history.txt in the build directory
     public void save(String fileName, int newGameNumber, int newCorrectNumber,
                      int newAllNumber) throws IOException {
         FileWriter fw = new FileWriter(fileName);
@@ -99,6 +88,9 @@ public class History {
         System.out.println("Successfully save the history.txt as well!");
     }
 
+    // TODO: Show the information of the Number of games played, Percentage of games that were wins,
+    //  Length of the current winning streak, Longest winning streak and
+    //  Histogram of guess distribution
     public void show(int tag, int lastGuessNumber) throws IOException {
         float win = tag;
         int num1Win = 0;
@@ -172,37 +164,37 @@ public class History {
         System.out.println("    ----------------------------------------------------------" +
                 "----------------------------------");
         System.out.print("  1 | ");
-        for (int i = 0; i < ((int)num1Win/0.1); i ++){
+        for (int i = 0; i < ((int) num1Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin1);
         System.out.println("    | ");
         System.out.print("  2 | ");
-        for (int i = 0; i < ((int)num2Win/0.1); i ++){
+        for (int i = 0; i < ((int) num2Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin2);
         System.out.println("    | ");
         System.out.print("  3 | ");
-        for (int i = 0; i < ((int)num3Win/0.1); i ++){
+        for (int i = 0; i < ((int) num3Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin3);
         System.out.println("    | ");
         System.out.print("  4 | ");
-        for (int i = 0; i < ((int)num4Win/0.1); i ++){
+        for (int i = 0; i < ((int) num4Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin4);
         System.out.println("    | ");
         System.out.print("  5 | ");
-        for (int i = 0; i < ((int)num5Win/0.1); i ++){
+        for (int i = 0; i < ((int) num5Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin5);
         System.out.println("    | ");
         System.out.print("  6 | ");
-        for (int i = 0; i < ((int)num6Win/0.1); i ++){
+        for (int i = 0; i < ((int) num6Win / 0.1); i++) {
             System.out.print("■");
         }
         System.out.println(" " + numWin6);

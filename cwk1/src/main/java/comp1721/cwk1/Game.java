@@ -10,27 +10,34 @@ import java.util.HashMap;
 
 public class Game {
     private final String targetWord;
+    // TODO: the text to print
     private String outText = "";
+    // TODO: if tag == 1, then win, otherwise lose.
     private int tag = 0;
     private final int gameNumber;
     private int guessNumber = 1;
 
+    // TODO: Getter of the tag
     public int getTag() {
         return tag;
     }
 
+    // TODO: Getter of the GameNumber
     public int getGameNumber() {
         return gameNumber;
     }
 
+    // TODO: Getter of the GuessNumber
     public int getGuessNumber() {
         return guessNumber;
     }
 
+    // TODO: Getter of the targetWord
     public String getTargetWord() {
         return targetWord;
     }
 
+    // TODO: Getter of the OutText
     public String getOutText() {
         return outText;
     }
@@ -53,11 +60,13 @@ public class Game {
     }
 
     // TODO: Implement play() method
+    // TODO: This method is used for people who has no color problem
     public void play() throws IOException {
         Guess guess = null;
         boolean valid;
         while (guessNumber != 7) {
             valid = false;
+            // TODO: catch the GameException in order to prevent the program from exiting
             while (!valid) {
                 while (!valid) {
                     try {
@@ -102,8 +111,8 @@ public class Game {
     }
 
     // TODO: Implement playMode2() method
-    // This method is used for people who have impaired colour vision, or
-    // people who rely on screen readers.
+    // TODO: This method is used for people who have impaired colour vision, or
+    // TODO: people who rely on screen readers.
     public void playMode2() throws IOException {
         int[] flag;
         int num2;
@@ -122,6 +131,7 @@ public class Game {
         boolean valid;
         while (guessNumber != 7) {
             valid = false;
+            // TODO: catch the GameException in order to prevent the program from exiting
             while (!valid) {
                 while (!valid) {
                     try {

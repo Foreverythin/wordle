@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class WordList {
     private final ArrayList<String> list = new ArrayList<String>();
 
+    // TODO: Getter of list
     public ArrayList<String> getList() {
         return list;
     }
