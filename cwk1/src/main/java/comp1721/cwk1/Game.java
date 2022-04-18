@@ -64,6 +64,7 @@ public class Game {
     public void play() throws IOException {
         Guess guess = null;
         boolean valid;
+        System.out.println("WORDLE " + gameNumber + "\n");
         while (guessNumber != 7) {
             valid = false;
             // TODO: catch the GameException in order to prevent the program from exiting
@@ -129,6 +130,7 @@ public class Game {
         position.put(5, "5th");
         Guess guess = null;
         boolean valid;
+        System.out.println("WORDLE " + gameNumber + "\n");
         while (guessNumber != 7) {
             valid = false;
             // TODO: catch the GameException in order to prevent the program from exiting
